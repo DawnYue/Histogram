@@ -17,7 +17,8 @@ int main()
 
 	Mat  dst;
 	//转换成灰度图像，使原图成为单通道图像
-	cvtColor(src_colar, dst, CV_BGR2GRAY);
+	//cvtColor(src_colar, dst, CV_BGR2GRAY);
+	 dst = imread("E:\\4.png", 0);
 	//查看图像通道数
 	int c = dst.channels();
 	cout << "=" << endl << c << endl;
