@@ -16,9 +16,9 @@ int main()
 	cv::Mat R = channels.at(2);//顺序是B,G,R
 
 	Mat  dst;
-	//转换成灰度图像，使原图成为单通道图像
-	//cvtColor(src_colar, dst, CV_BGR2GRAY);
-	 dst = imread("E:\\4.png", 0);
+	//转换成灰度图像
+	//cvtColor(src_colar, dst, CV_BGR2GRAY);利用函数
+	 dst = imread("E:\\4.png", 0);//利用imread（"",0）;
 	//查看图像通道数
 	int c = dst.channels();
 	cout << "=" << endl << c << endl;
