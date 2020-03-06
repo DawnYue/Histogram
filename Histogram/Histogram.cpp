@@ -31,13 +31,27 @@ int main()
 			}
 		}
 	float total;
-	total = src_colar.rows*src_colar.cols;
+	total = dst.rows*dst.cols;
 	for (int i = 0; i < 256; i++) {
-		histgram[i] = histgram[i] / ;
+		histgram[i] = histgram[i] / total;
     cout << "histgram" << histgram [i]<< endl;
 	}
 
-	imshow("src_colar", src_colar);
+	int hist_h = 400;//直方图的图像的高
+	int hist_w = 512;////直方图的图像的宽
+	Mat histImage(hist_w, hist_h, CV_8UC3, Scalar(0, 0, 0));//绘制直方图显示的图像
+
+    //draw rectangle  
+	cv::Rect rect;
+	rect.x = 0;
+	rect.y = 0;
+	rect.width = 2;
+	for (int i = 0; i < 256; i++) {
+		rect.x = rect.x + 2;
+		rect.height = histgram[i]*3000;	
+		rectangle(histImage, rect, CV_RGB(255, 0, 0), 1, 8, 0);
+	}
+	imshow("histImage", histImage);
 	waitKey(0);//等待用户按键
 	return 0;
 }
