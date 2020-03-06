@@ -6,23 +6,33 @@ using namespace std;
 
 int main()
 {
-	cv::Mat src_colar = imread("E:\\4.png");
 
-	std::vector<cv::Mat>channels;//声明vector，作为分离后3个通道图像的保存容器
-	split(src_colar, channels);//分离rgb三通道
+	Mat dispMat = Mat::zeros(700, 700, CV_8UC3);
+	cv::Point pt;
+	pt.x = 10;
+	pt.y = 10;
+	circle(dispMat, pt, 5, CV_RGB(255, 0, 0), 1, 8, 0);
+	imshow("dispMat", dispMat);
+	waitKey(0);//等待用户按键
 
-	cv::Mat B = channels.at(0);//获得3个通道的分离结果
-	cv::Mat G = channels.at(1);//三个通道的排列
-	cv::Mat R = channels.at(2);//顺序是B,G,R
+	//draw line
+	Point pt1, pt2;
+	pt1.x = 20;
+	pt1.y = 20;
+	pt2.x = 200;
+	pt2.y = 200;
+	line(dispMat, pt1, pt2, CV_RGB(255, 0, 0), 1, 8, 0);
+	imshow("dispMat", dispMat);
+	waitKey(0);//等待用户按键
 
-
-	imshow("red", R);
-	waitKey(0);
-	imshow("blue", B);
-	waitKey(0);
-	imshow("green", G);
-	waitKey(0);
-	imshow("original Mat", src_colar);
+	//draw rectangle  
+	cv::Rect rect;
+	rect.x = 350;
+	rect.y = 350;
+	rect.height=120;
+	rect.width=100;
+	rectangle(dispMat, rect, CV_RGB(255, 0, 0), 1, 8, 0);
+	imshow("dispMat", dispMat);
 	waitKey(0);//等待用户按键
 	return 0;
 }
