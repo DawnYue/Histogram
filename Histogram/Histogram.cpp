@@ -32,8 +32,7 @@ int main()
 		}
 	for (int i = 0; i < 256; i++) {
     cout << "histgram" << histgram [i]<< endl;
-		}
-
+	}
 
 	imshow("src_colar", src_colar);
 	waitKey(0);//等待用户按键
