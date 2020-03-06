@@ -23,14 +23,17 @@ int main()
 	cout << "=" << endl << c << endl;
 
 	float histgram[256]= { 0 };
-		for (int j = 0; j < src_colar.rows; j++) {
+		for (int j = 0; j < dst.rows; j++) {
 			uchar* data = src_colar.ptr <uchar>(j);
-			for (int i = 0; i < src_colar.cols; i++) {
+			for (int i = 0; i < dst.cols; i++) {
 				//data[i] = j;
 				histgram[data[i]] = histgram[data[i]] + 1;
 			}
 		}
+	float total;
+	total = src_colar.rows*src_colar.cols;
 	for (int i = 0; i < 256; i++) {
+		histgram[i] = histgram[i] / ;
     cout << "histgram" << histgram [i]<< endl;
 	}
 
