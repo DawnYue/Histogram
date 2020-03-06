@@ -23,9 +23,9 @@ int main()
 	cout << "=" << endl << c << endl;
 
 	float histgram[256]= { 0 };
-		for (int j = 0; j < src_colar.rows; j++) {
-			uchar* data = src_colar.ptr <uchar>(j);
-			for (int i = 0; i < src_colar.cols; i++) {
+		for (int j = 0; j < dst.rows; j++) {
+			uchar* data = dst.ptr <uchar>(j);
+			for (int i = 0; i < dst.cols; i++) {
 				//data[i] = j;
 				histgram[data[i]] = histgram[data[i]] + 1;
 			}
