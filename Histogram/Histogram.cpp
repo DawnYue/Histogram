@@ -7,14 +7,7 @@ using namespace std;
 int main()
 {
 	cv::Mat src_colar = imread("E:\\4.png");
-
-	std::vector<cv::Mat>channels;//声明vector，作为分离后3个通道图像的保存容器
-	split(src_colar, channels);//分离rgb三通道
-
-	cv::Mat B = channels.at(0);//获得3个通道的分离结果
-	cv::Mat G = channels.at(1);//三个通道的排列
-	cv::Mat R = channels.at(2);//顺序是B,G,R
-
+	std::vector<cv::Mat>channels;
 	Mat  dst;
 	//转换成灰度图像，使原图成为单通道图像
 	cvtColor(src_colar, dst, CV_BGR2GRAY);
@@ -51,6 +44,26 @@ int main()
 		rect.height = histgram[i]*3000;	
 		rectangle(histImage, rect, CV_RGB(255, 0, 0), 1, 8, 0);
 	}
+
+	/*draw line
+	Point pt1, pt2;
+	pt1.x = 0;
+	pt1.y = 399;
+	pt2.x = 0;
+	pt2.y = 0;
+	for (int i = 0; i < 256; i++) {
+		pt2.y = pt2.y-histgram[i] * 3000;
+
+		pt2.x = pt2.x + 1;
+		pt1.x = pt2.x ;
+		line(histImage, pt1, pt2, CV_RGB(255, 0, 0), 1, 8, 0);
+		pt2.x = pt2.x + 1;
+		pt1.x = pt2.x;
+		line(histImage, pt1, pt2, CV_RGB(255, 0, 0), 1, 8, 0);
+
+	}//							*/
+	
+
 	imshow("histImage", histImage);
 	waitKey(0);//等待用户按键
 	return 0;
