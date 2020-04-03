@@ -1,6 +1,7 @@
 # Histogram第二周
  opencv简单实践2：分离rgb三通道、调摄像头、绘图操作、直方图计算与绘制
 
+https://www.bilibili.com/video/BV1UE411c7zL/
 
 练习1
 读取一张图片，存入名为src_color的Mat容器中
